@@ -1,0 +1,47 @@
+$transition-duration: 2s
+$path-length: 157px
+
+.svg
+  width: 100px
+  height: 150px
+  overflow: visible
+
+  g
+    animation: slide $transition-duration linear infinite
+
+    &:nth-child(2)
+      animation-delay: $transition-duration / 4
+
+      path
+        stroke-dashoffset: 1px
+        stroke-dasharray: 0px $path-length + 1
+        animation-delay: $transition-duration / 4
+
+  path
+    fill: none
+    stroke-width: 20px
+    stroke-dashoffset: 0
+    stroke-linecap: round
+    stroke: url(#gradient)
+    stroke-dasharray: 0 $path-length
+    animation: escalade $transition-duration cubic-bezier(0.8, 0, 0.2, 1) infinite
+
+@keyframes slide
+  0%
+    transform: translateY(-50px)
+
+  100%
+    transform: translateY(50px)
+
+@keyframes escalade
+  0%
+    stroke-dasharray: 0 $path-length
+    stroke-dashoffset: 0
+
+  50%
+    stroke-dasharray: $path-length - 1 $path-length
+    stroke-dashoffset: 0
+
+  100%
+    stroke-dasharray: $path-length - 1 $path-length
+    stroke-dashoffset: -($path-length - 1)

@@ -1,0 +1,106 @@
+@import "../../../Mixins"
+
+#checkbox
+  cursor: pointer
+  @include align-items(center)
+  @include display(inline-flex)
+
+  & p
+    color: #353535
+    font-size: 13px
+    margin-left: 8px
+    line-height: 16px
+    font-style: normal
+    font-weight: normal
+    font-family: Montserrat
+
+.checkbox
+  --tick: #fff
+  --border: #D1D6EE
+  position: relative
+  --background: #fff
+  --border-hover: #BBC1E1
+  --border-active: #F5D312
+
+  input, svg
+    width: 21px
+    height: 21px
+    @include display(block)
+
+  input
+    margin: 0
+    padding: 0
+    border: none
+    outline: none
+    cursor: pointer
+    border-radius: 4px
+    -moz-appearance: none
+    -webkit-appearance: none
+    @include position(relative)
+    background: var(--background)
+    @include transition(box-shadow .3s)
+    box-shadow: inset 0 0 0 var(--s, 1px) var(--b, var(--border))
+
+    &:hover
+      --s: 2px
+      --b: var(--border-hover)
+
+    &:checked
+      --b: var(--border-active)
+
+
+  svg
+    top: 0
+    left: 0
+    fill: none
+    width: 21px
+    height: 21px
+    stroke-width: 2px
+    pointer-events: none
+    stroke-linecap: round
+    stroke-linejoin: round
+    @include position(absolute)
+    stroke: var(--stroke, var(--border-active))
+    @include transform(scale(var(--scale, 1)) translateZ(0))
+
+  &.path
+
+    input
+
+      &:checked
+        --s: 2px
+        transition-delay: .4s
+
+        & + svg
+          --o: 102.22
+          --a: 16.1 86.12
+
+    svg
+      stroke-dasharray: var(--a, 86.12)
+      stroke-dashoffset: var(--o, 86.12)
+      @include transition(stroke-dasharray .6s)
+      @include transition(stroke-dashoffset .6s)
+
+  &.bounce
+    --stroke: var(--tick)
+
+    input
+
+      &:checked
+        --s: 11px
+
+        & + svg
+          animation: bounce .4s linear forwards .2s
+
+    svg
+      --scale: 0
+
+@keyframes bounce
+  50%
+    @include transform(scale(1.2))
+
+  75%
+    @include transform(scale(.9))
+
+  100%
+    @include transform(scale(1))

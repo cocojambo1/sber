@@ -1,0 +1,35 @@
+@import "../../Mixins"
+
+.Loader
+  width: 100vw
+  height: 100vh
+  @include display(flex)
+  @include align-items(center)
+  @include justify-content(center)
+
+.formPage
+  width: 100vw
+  height: 100vh
+  @include display( flex )
+  @include align-items( center )
+  @include justify-content( center )
+
+.form
+  width: 392px
+  padding: 32px 0
+  border-radius: 3px
+  background-color: #fff
+  @include display(flex)
+  @include align-items(center)
+  @include flex-direction(column)
+
+.userIcon
+  width: 85px
+  height: 85px
+  border-radius: 50%
+  margin-bottom: 56px
+  @include display(flex)
+  box-sizing: border-box
+  border: 1px solid #6C6666
+  @include align-items(center)
+  @include justify-content(center)

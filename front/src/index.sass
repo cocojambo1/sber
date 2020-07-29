@@ -1,0 +1,16 @@
+@import "Mixins"
+
+body
+  margin: 0
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  background: rgba(104, 114, 149, 0.5)
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+
+.authForm
+  @include display(grid)
+  @include grid-row-gap(24px)
+
+p
+  margin: 0
+  padding: 0
