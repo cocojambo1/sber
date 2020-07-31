@@ -52,6 +52,10 @@ const Auth: React.FC<IProps> = ({isFetching}) => {
           location.pathname === '/auth/sing-up' ? <SingUp textStyle={textStyle} /> : null
         }
       </div>
+
+      {/*<video width="400" height="300" poster="../../assets/maxresdefault.jpg" autoPlay="autoplay" controls="controls">*/}
+      {/*  <source src="../../assets/sver.mp4" type="video/mp4"/>*/}
+      {/*</video>*/}
     </div>
   );
 };
