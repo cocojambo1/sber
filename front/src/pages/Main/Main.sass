@@ -1,8 +1,15 @@
 @import "../../Mixins"
 
 .main
+  padding-top: 100px
   width: 100vw
   height: 100vh
   @include display(flex)
-  @include align-items(center)
   @include justify-content(center)
+
+.container
+  width: 100%
+  max-width: 1146px
+  @include display(grid)
+  @include grid-gap(30px)
+  @include grid-template-columns(1fr 1fr 1fr 1fr)

@@ -1,21 +1,12 @@
 import './Checkbox.sass'
 import React from "react";
-import {connect} from "react-redux";
-import {LanguageText} from "../../../store/reducers/language";
 
 interface IProps {
   checked: boolean,
   setChecked: Function,
-  language: {
-    language: string,
-    abbreviated: string,
-  };
 }
 
-const Checkbox: React.FC<IProps> = ({checked, setChecked, language}) => {
-  // @ts-ignore
-  const languageText = LanguageText[language.abbreviated];
-
+const Checkbox: React.FC<IProps> = ({checked, setChecked}) => {
   return (
     <div id='checkbox' onClick={() => setChecked(!checked)} >
       <label className="checkbox bounce">
@@ -25,15 +16,9 @@ const Checkbox: React.FC<IProps> = ({checked, setChecked, language}) => {
         </svg>
       </label>
 
-      <p>{ languageText.form.saveMe }</p>
+      <p> Запомнить меня </p>
     </div>
   );
 };
 
-const mapStateToProps = (store: any) => {
-  return {
-    language: store.language
-  }
-}
-
-export default connect(mapStateToProps)(Checkbox);
+export default Checkbox;

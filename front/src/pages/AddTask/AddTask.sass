@@ -1,0 +1,87 @@
+@import "../../Mixins"
+
+.addTask
+  width: 100vw
+  height: 100vh
+  @include display(flex)
+  @include align-items(center)
+  @include justify-content(center)
+
+  &__block
+    width: 100%
+    max-width: 1146px
+    @include display(grid)
+    @include grid-row-gap(24px)
+
+  &__title
+    width: 100%
+    height: 60px
+    border-radius: 5px
+    background-color: #fff
+    padding-left: 8px
+
+    color: #999999
+    font-size: 14px
+    font-weight: 600
+    line-height: 17px
+    font-style: normal
+    font-family: Montserrat
+
+.description
+  width: 100%
+  height: 400px
+  border-radius: 5px
+  background-color: #fff
+
+.audio
+  width: 100%
+  @include display(grid)
+  @include grid-template-columns(1fr)
+  @include grid-column-gap(30px)
+
+  &__recorder
+    @include display(grid)
+    @include grid-row-gap(24px)
+    height: 100px
+
+  &__label
+    width: 100%
+    height: 40px
+    border-radius: 3px
+    background-color: #fff
+    @include display(flex)
+    @include align-items(center)
+    @include justify-content(center)
+
+    color: #999999
+    font-size: 16px
+    font-weight: 600
+    line-height: 17px
+    font-style: normal
+    font-family: Montserrat
+
+  &__options
+    @include display(grid)
+    @include grid-template-columns(1fr 1fr 1fr 1fr)
+    @include grid-column-gap(24px)
+    @include grid-template-rows(40px)
+
+  &__btn
+    cursor: pointer
+    border-radius: 3px
+    @include display(flex)
+    background-color: #fff
+    @include align-items(center)
+    @include justify-content(center)
+
+    & svg
+      width: 30px
+      height: 30px
+
+  &__view
+    width: 100%
+    height: 100px
+    background-color: #fff
+    @include display(flex)
+    @include align-items(center)
+    @include justify-content(center)

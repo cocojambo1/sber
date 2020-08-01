@@ -1,29 +1,21 @@
-import React, {useCallback, useState} from "react";
+import React, { useCallback, useState } from "react";
 import Input from "../ui/input/Input";
 import Btn from "../ui/btn/Btn";
 import validateEmail from "../../functions/validateEmail";
-import {useDispatch} from "react-redux";
-import {NavLink} from "react-router-dom";
-import {LanguageText} from "../../store/reducers/language";
-import {connect} from "react-redux";
-import {singUpRequest} from "../../store/actions/user";
+import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { singUpRequest } from "../../store/actions/user";
 
 interface IProps {
   textStyle: any,
-  language: {
-    language: string,
-    abbreviated: string,
-  };
 };
 
-const SingUp: React.FC<IProps> = ({textStyle, language}) => {
+const SingUp: React.FC<IProps> = ({textStyle}) => {
   const dispatch = useDispatch()
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [error, setError] = useState<boolean>(true);
-  // @ts-ignore
-  const languageText = LanguageText[language.abbreviated];
 
   const btnStyle = {
     width: '180px',
@@ -48,7 +40,7 @@ const SingUp: React.FC<IProps> = ({textStyle, language}) => {
           value={name}
           onchange={setName}
           type='text'
-          placeholder={languageText.form.inputName}
+          placeholder='Имя'
         />
 
         <Input
@@ -58,7 +50,7 @@ const SingUp: React.FC<IProps> = ({textStyle, language}) => {
           value={email}
           onchange={setEmail}
           type='text'
-          placeholder={languageText.form.inputEmail}
+          placeholder='Почта'
         />
 
         <Input
@@ -68,27 +60,21 @@ const SingUp: React.FC<IProps> = ({textStyle, language}) => {
           value={password}
           onchange={setPassword}
           type='password'
-          placeholder={languageText.form.inputPassword}
+          placeholder='Пароль'
         />
 
         <Btn
-          text={languageText.form.btnSingUp}
+          text='Зарегестрироваться'
           onclick={singUp}
           style={btnStyle}
         />
       </form>
 
       <p style={{ ...textStyle, fontSize: '13px', }} >
-        { languageText.form.haveAcc } <NavLink style={{ ...textStyle, textDecorationLine: 'underline', fontSize: '13px', }} exact to='/auth/sing-in' >{ languageText.form.singIn }</NavLink>
+        Есть аккаут? <NavLink style={{ ...textStyle, textDecorationLine: 'underline', fontSize: '13px', }} exact to='/auth/sing-in' > Войти </NavLink>
       </p>
     </>
   );
 };
 
-const mapStateToProps = (store: any) => {
-  return {
-    language: store.language
-  }
-}
-
-export default connect(mapStateToProps)(SingUp);
+export default SingUp;

@@ -3,8 +3,8 @@ import './Btn.sass'
 
 interface IPros {
   text: string,
-  onclick: any,
-  style: any,
+  onclick?: any,
+  style?: any,
 }
 
 const Btn: React.FC<IPros> = ({ text, onclick, style = {} }) => {
