@@ -3,7 +3,6 @@ import React from "react";
 import Cookies from "js-cookie";
 import { Redirect } from 'react-router-dom';
 import Task from "../../components/Task/Task";
-import Recorder from "../../components/Recorder/Recorder";
 
 const Main = () => {
   // if ( !Cookies.get('token') )
@@ -12,7 +11,78 @@ const Main = () => {
 
   return (
     <div className='main' >
-      <Recorder/>
+      <div className='container'>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+        <Task text='awsfasfafasdfadfgasdfasdfgasd.asdflkjasdfl;asdfh;asdfhasdfhasd hasdfi asdfkl asdhfiasduas' id={2}/>
+      </div>
     </div>
     )
 }
