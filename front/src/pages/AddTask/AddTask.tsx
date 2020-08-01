@@ -2,19 +2,21 @@ import './AddTask.sass'
 import Input from "./Input";
 import React, { useState } from "react";
 import RichEditorExample from "../../components/Editor/Editor";
-import Play from "./svg/Play";
+import TextareaAutosize from 'react-textarea-autosize';
+import Microphone from "./svg/Microphone";
 import Pause from "./svg/Pause";
-import Close from "./svg/Close";
+import Cancel from "./svg/Cancel";
 import Stop from "./svg/Stop";
 import axios from "axios";
 
 const AddTask = () => {
   const [title, setTitle] = useState<string>('')
   const [audio, setAudio] = useState<boolean>(false)
+  const [description, setDescription] = useState<string>('')
   const audioChunks: any = [];
   let rec: any;
 
-  navigator.mediaDevices.getUserMedia({audio: true}).then(stream => handlerFunction(stream))
+  window.navigator.mediaDevices.getUserMedia({audio: true}).then(stream => handlerFunction(stream))
 
   const handlerFunction = (stream: any) => {
     // @ts-ignore
@@ -23,28 +25,39 @@ const AddTask = () => {
       audioChunks.push(e.data);
 
       if (rec.state === "inactive") {
-        const voiceBlob = new Blob(audioChunks, {
+        const audioBlob = new Blob(audioChunks, {
           type: 'audio/wav'
         });
 
         setAudio(true)
         // @ts-ignore
-        document.getElementById('recordedAudio').src = URL.createObjectURL(voiceBlob);
+        document.getElementById('recordedAudio').src = URL.createObjectURL(audioBlob);
         // @ts-ignore
         document.getElementById('recordedAudio').controls = true;
         // @ts-ignore
         document.getElementById('recordedAudio').autoplay = true;
 
-        sendData(voiceBlob)
+        sendData(audioBlob)
       }
     }
   }
 
-  function sendData(voiceBlob: any) {
+  const sendData = async (voiceBlob: any): Promise<void> => {
     let fd = new FormData()
     fd.append('file', voiceBlob)
 
-    axios.post('http://vahella.me:5000/', fd).then(response => console.log(response))
+    //http://vahella.me:8087/upload
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }
+    const response = await axios.post(' http://vahella.me:5000', fd, config)
+
+    console.log(response);
+
+    setDescription(prevState => `${prevState} 
+    ${response.data.text}`)
   }
 
   const play = () => {
@@ -59,6 +72,12 @@ const AddTask = () => {
     rec.stop();
   }
 
+  const pause = () => {
+    console.log('pause')
+
+    rec.pause();
+  }
+
   return (
     <div className='addTask'>
       <div className='addTask__block'>
@@ -69,7 +88,13 @@ const AddTask = () => {
           placeholder='Название проекта'
         />
 
-        <RichEditorExample/>
+        <TextareaAutosize
+          minRows={10}
+          maxRows={35}
+          value={description}
+          placeholder='Описание задачи'
+          onChange={e => setDescription(e.target.value)}
+        />
 
         <div className='audio'>
           <div className='audio__recorder'>
@@ -81,18 +106,18 @@ const AddTask = () => {
 
             <div className='audio__options'>
               <div className='audio__btn'>
-                <Close/>
+                <Cancel/>
               </div>
 
               <div className='audio__btn' onClick={play}>
-                <Play/>
-              </div>
-
-              <div className='audio__btn' onClick={stop}>
-                <Stop/>
+                <Microphone/>
               </div>
 
               <div className='audio__btn'>
+                <Stop/>
+              </div>
+
+              <div className='audio__btn' onClick={stop}>
                 <Pause/>
               </div>
             </div>
