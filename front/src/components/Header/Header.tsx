@@ -23,7 +23,7 @@ const Header = ({ pathname }: any) => {
 
           <div className='logo__text'>
             <p>Sberbank</p>
-            <p>Traker</p>
+            <p>Tracker</p>
           </div>
         </NavLink>
 
