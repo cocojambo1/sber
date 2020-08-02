@@ -119,7 +119,7 @@ const AddTask = () => {
         dispatch(push(`/task/${response.data.taskId}`))
       }
     } else
-      alert('Oh shit Error')
+      alert('Oh shit Error');
   }
 
   if (fetchin) {
@@ -174,7 +174,7 @@ const AddTask = () => {
                         <audio
                           key={i}
                           src={item.src}
-                          autoPlay={true}
+                          autoPlay={false}
                           controls={true}
                         />
                       ))

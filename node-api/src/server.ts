@@ -29,6 +29,6 @@ app.use(cors({
 
 app.use('/user', authRouter);
 
-server.listen(8000, () => {
+server.listen(7000, () => {
 	console.log('listening on *:8000');
 });

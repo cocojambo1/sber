@@ -8,8 +8,8 @@ import {
   SINGUP_REQUEST
 } from "../constants/user";
 
-const login = ( email: string, password: string ) => axios.post('http://localhost:8000/user/login', { email, password });
-const singUp = ( name: string, email: string, password: string ) => axios.post('http://localhost:8000/user/registration', { name, email, password });
+const login = ( email: string, password: string ) => axios.post('http://localhost:7000/user/login', { email, password });
+const singUp = ( name: string, email: string, password: string ) => axios.post('http://localhost:7000/user/registration', { name, email, password });
 
 interface IAction {
   type: string,
