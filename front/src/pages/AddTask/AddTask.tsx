@@ -11,6 +11,7 @@ import Microphone from "./svg/Microphone";
 import Btn from "../../components/ui/btn/Btn";
 import { push } from "connected-react-router";
 import Editor from "../../components/Editor/Editor";
+import Loader from "../../components/ui/loader/Loader";
 
 const AddTask = () => {
   const [obj, setObj] = useState<any[]>([])
@@ -19,6 +20,7 @@ const AddTask = () => {
   const [status, setStatus] = useState<string>('stop')
   const [description, setDescription] = useState<string>('')
   const [records, setRecords] = useState<string[] | number[]>([])
+  const [fetchin, setFetching] = useState<boolean>(false)
 
   const dispatch = useDispatch();
   const audioChunks: any = [];
@@ -92,92 +94,107 @@ const AddTask = () => {
   }
 
   const addNewTask = async () => {
-    const data = {
-      title,
-      records,
-      description,
-      status: 0,
-      ownerId: 1,
-    }
+    if (title && description) {
+      const data = {
+        title,
+        records,
+        description,
+        status: 0,
+        ownerId: 1,
+      }
 
-    const response = await axios.post('http://vahella.me:8087/task', data)
+      setFetching(true)
 
-    if (response.status === 200) {
-      setObj([]);
-      setTitle('');
-      setRecords([]);
-      setAudio(false);
-      setDescription('');
+      const response = await axios.post('http://vahella.me:8087/task', data)
 
-      dispatch(push(`/task/${response.data.taskId}`))
-    }
+      setFetching(false)
+
+      if (response.status === 200) {
+        setObj([]);
+        setTitle('');
+        setRecords([]);
+        setAudio(false);
+        setDescription('');
+
+        dispatch(push(`/task/${response.data.taskId}`))
+      }
+    } else
+      alert('Oh shit Error')
   }
 
-  return (
-    <div className='addTask'>
-      <div className='addTask__block'>
-        <Input
-          value={title}
-          onchange={setTitle}
-          classname='addTask__title'
-          placeholder='Название проекта'
-        />
+  if (fetchin) {
+    return (
+      <div className='addTask__loader'>
+        <Loader/>
+      </div>
+    )
+  } else {
+    return (
+      <div className='addTask'>
+        <div className='addTask__block'>
+          <Input
+            value={title}
+            onchange={setTitle}
+            classname='addTask__title'
+            placeholder='Название проекта'
+          />
 
-        <Editor
-          value={description}
-          set={setDescription}
-        />
+          <Editor
+            value={description}
+            set={setDescription}
+          />
 
-        <div className='audio'>
-          <div className='audio__recorder'>
-            <div className='audio__options'>
-              <div className='audio__btn' onClick={cancel}>
-                <Cancel/>
+          <div className='audio'>
+            <div className='audio__recorder'>
+              <div className='audio__options'>
+                <div className='audio__btn' onClick={cancel}>
+                  <Cancel/>
+                </div>
+
+                <div className='audio__btn' onClick={status !== 'pause' ? play : resume}>
+                  {
+                    status === 'pause' ? <Play/> : <Microphone/>
+                  }
+                </div>
+
+                <div className='audio__btn' onClick={pause}>
+                  <Stop/>
+                </div>
+
+                <div className='audio__btn' onClick={stop}>
+                  <Pause/>
+                </div>
               </div>
 
-              <div className='audio__btn' onClick={status !== 'pause' ? play : resume}>
-                {
-                  status === 'pause' ? <Play/> : <Microphone/>
-                }
-              </div>
-
-              <div className='audio__btn' onClick={pause}>
-                <Stop/>
-              </div>
-
-              <div className='audio__btn' onClick={stop}>
-                <Pause/>
+              <div className='audio__label'>
+                <div className='audio__content'>
+                  {
+                    audio ? (
+                      obj.map((item, i) => (
+                        <audio
+                          key={i}
+                          src={item.src}
+                          autoPlay={true}
+                          controls={true}
+                        />
+                      ))
+                    ) : null
+                  }
+                </div>
               </div>
             </div>
 
-            <div className='audio__label'>
-              <div className='audio__content'>
-                {
-                  audio ? (
-                    obj.map((item, i) => (
-                      <audio
-                        key={i}
-                        src={item.src}
-                        autoPlay={true}
-                        controls={true}
-                      />
-                    ))
-                  ) : null
-                }
-              </div>
-            </div>
           </div>
 
+          <Btn
+            text='Сохранить'
+            onclick={addNewTask}
+            style={{margin: '0 auto'}}
+          />
         </div>
-
-        <Btn
-          text='Сохранить'
-          onclick={addNewTask}
-          style={{margin: '0 auto'}}
-        />
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default AddTask
