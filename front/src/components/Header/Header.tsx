@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { push } from "connected-react-router";
+import Cookies from "js-cookie";
 
 const Header = ({ pathname }: any) => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const Header = ({ pathname }: any) => {
         </NavLink>
 
         {
-          pathname !== '/' ? (
+          pathname !== '/' && Cookies.get('token') ? (
             (
               <Btn
                 text='Назад'
