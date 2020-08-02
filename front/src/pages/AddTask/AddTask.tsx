@@ -70,27 +70,11 @@ const AddTask = () => {
     setDescription(prevState => `${prevState} <p>${response.data.text}</p>`)
   }
 
-  const play = () => {
-    console.log('play')
-    rec.start();
-  };
-  const stop = () => {
-    console.log('stop')
-    rec.stop();
-  };
-  const resume = () => {
-    console.log('resume')
-    rec.resume();
-  };
-  const pause = () => {
-    console.log('pause')
-    rec.pause();
-  };
-  const cancel = () => {
-    console.log('cancel')
-    setStatus('cancel')
-    rec.stop();
-  };
+  const play = () => rec.start();
+  const stop = () => rec.stop();
+  const resume = () => rec.resume();
+  const pause = () => rec.pause();
+  const cancel = () => rec.stop();
 
   const addNewTask = async () => {
     const data = {
@@ -131,21 +115,6 @@ const AddTask = () => {
 
         <div className='audio'>
           <div className='audio__recorder'>
-            <div className='audio__label'>
-              {
-                audio ? (
-                  obj.map((item, i) => (
-                    <audio
-                      key={i}
-                      src={item.src}
-                      autoPlay={true}
-                      controls={true}
-                    />
-                  ))
-                ) : 'Аудио описание'
-              }
-            </div>
-
             <div className='audio__options'>
               <div className='audio__btn' onClick={cancel}>
                 <Cancel/>
@@ -163,6 +132,23 @@ const AddTask = () => {
 
               <div className='audio__btn' onClick={stop}>
                 <Pause/>
+              </div>
+            </div>
+
+            <div className='audio__label'>
+              <div className='audio__content'>
+                {
+                  audio ? (
+                    obj.map((item, i) => (
+                      <audio
+                        key={i}
+                        src={item.src}
+                        autoPlay={true}
+                        controls={true}
+                      />
+                    ))
+                  ) : null
+                }
               </div>
             </div>
           </div>

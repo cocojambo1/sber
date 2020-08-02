@@ -48,30 +48,28 @@
 
   &__recorder
     @include display(grid)
-    @include grid-row-gap(24px)
+    @include grid-column-gap(30px)
+    @include grid-template-columns(1fr 1fr)
 
   &__label
     width: 100%
-    height: 80px
+    @include display(flex)
+    background-color: #fff
+    @include align-items(center)
+    @include justify-content(center)
+
+  &__content
+    padding: 8px 0
+    min-height: 120px
     border-radius: 3px
     @include display(grid)
-    background-color: #fff
     @include grid-gap(30px)
-    @include grid-template-rows(40px)
-    @include grid-template-columns(1fr 1fr 1fr 1fr)
-
-    color: #999999
-    font-size: 16px
-    font-weight: 600
-    line-height: 17px
-    font-style: normal
-    font-family: Montserrat
 
   &__options
     @include display(grid)
-    @include grid-template-columns(1fr 1fr 1fr 1fr)
-    @include grid-column-gap(24px)
-    @include grid-template-rows(40px)
+    @include grid-gap(24px)
+    @include grid-template-columns(1fr 1fr)
+    @include grid-template-rows(48px 48px)
 
   &__btn
     cursor: pointer
