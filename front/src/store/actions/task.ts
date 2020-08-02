@@ -15,6 +15,7 @@ export interface ITask {
   created: string
   updated: string
   description: string
+  audioDescription: string
 }
 
 interface IRecords {

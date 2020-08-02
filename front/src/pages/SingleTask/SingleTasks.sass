@@ -6,7 +6,7 @@
   @include display(flex)
   @include align-items(center)
   @include justify-content(center)
-  
+
   &__content
     width: 100%
     max-width: 1146px
@@ -22,3 +22,34 @@
     font-style: normal
     text-align: center
     font-family: Montserrat
+
+  &__audioDescription
+    @include display(flex)
+    @include align-items(center)
+
+    & h2
+      color: #362E2E
+      font-size: 18px
+      font-weight: 600
+      line-height: 22px
+      font-style: normal
+      margin-right: 16px
+      font-family: Montserrat
+
+.records
+  @include display(flex)
+  @include justify-content(flex-start)
+
+  &__container
+    @include display(grid)
+    @include grid-template-columns(1fr 1fr)
+    @include grid-column-gap(30px)
+
+  &__table
+    @include display(grid)
+    @include grid-row-gap(16px)
+
+    & p
+      @include display(flex)
+      @include align-items(center)
+      @include justify-content(flex-end)

@@ -2,14 +2,29 @@
 
 .head
   width: 100vw
-  height: 56px
+  height: 72px
   background-color: #fff
   @include display(flex)
   @include position(fixed)
   @include align-items(center)
-  @include justify-content(center)
+  @include justify-content(space-between)
 
   &__container
-    @include display(grid)
-    @include grid-column-gap(30px)
-    @include grid-template-columns(1fr 1fr)
+    width: 100%
+    margin: 0 auto
+    max-width: 1146px
+    @include display(flex)
+    @include justify-content(space-between)
+    @include align-items(center)
+
+.logo
+  @include display(flex)
+  @include align-items(center)
+
+  &__text
+    color: #333
+    font-size: 22px
+    font-weight: 700
+    margin-left: 16px
+    font-family: Montserrat
+    text-transform: uppercase

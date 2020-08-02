@@ -16,7 +16,7 @@ interface IState {
 }
 
 interface IAction {
-  task: ITask
+  task: any
   type: string,
   tasks: ITask[]
   isError: boolean
@@ -24,7 +24,7 @@ interface IAction {
 }
 
 const initialState = {
-  task: [],
+  task: {},
   tasks: [],
   isError: false,
   isFetching: true,
@@ -34,17 +34,17 @@ export function task(state: IState = initialState, action: IAction): object {
   switch (action.type) {
     case ALL_TASK_REQUEST:
     case SINGLE_TASK_REQUEST:
-      return { isFetching: true, isError: false, tasks: [], task: [] }
+      return { isFetching: true, isError: false, tasks: [], task: {} }
 
     case ALL_TASK_SUCCESS:
-      return { isFetching: false, isError: false, tasks: action.tasks, task: [] }
+      return { isFetching: false, isError: false, tasks: action.tasks, task: {} }
 
     case SINGLE_TASK_SUCCESS:
       return { isFetching: false, isError: false, tasks: [], task: action.task }
 
     case ALL_TASK_FAIL:
     case SINGLE_TASK_FAIL:
-      return { isFetching: false, isError: true, tasks: [], task: [] }
+      return { isFetching: false, isError: true, tasks: [], task: {} }
 
     default:
       return state

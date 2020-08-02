@@ -6,11 +6,10 @@ import Stop from "./svg/Stop";
 import Pause from "./svg/Pause";
 import Cancel from "./svg/Cancel";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Microphone from "./svg/Microphone";
 import Btn from "../../components/ui/btn/Btn";
 import { push } from "connected-react-router";
-import TextareaAutosize from 'react-textarea-autosize';
-import {useDispatch} from "react-redux";
 import Editor from "../../components/Editor/Editor";
 
 const AddTask = () => {
@@ -68,8 +67,7 @@ const AddTask = () => {
     const response = await axios.post(' http://vahella.me:5000', fd, config)
 
     setRecords(prevState => [...prevState, response.data.id])
-    setDescription(prevState => `${prevState} 
-${response.data.text}`)
+    setDescription(prevState => `${prevState} <p>${response.data.text}</p>`)
   }
 
   const play = () => {
@@ -131,14 +129,6 @@ ${response.data.text}`)
           set={setDescription}
         />
 
-        {/*<TextareaAutosize*/}
-        {/*  minRows={10}*/}
-        {/*  maxRows={35}*/}
-        {/*  value={description}*/}
-        {/*  placeholder='Описание задачи'*/}
-        {/*  onChange={e => setDescription(e.target.value)}*/}
-        {/*/>*/}
-
         <div className='audio'>
           <div className='audio__recorder'>
             <div className='audio__label'>
@@ -150,7 +140,6 @@ ${response.data.text}`)
                       src={item.src}
                       autoPlay={true}
                       controls={true}
-
                     />
                   ))
                 ) : 'Аудио описание'
