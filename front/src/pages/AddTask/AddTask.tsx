@@ -70,11 +70,26 @@ const AddTask = () => {
     setDescription(prevState => `${prevState} <p>${response.data.text}</p>`)
   }
 
-  const play = () => rec.start();
-  const stop = () => rec.stop();
-  const resume = () => rec.resume();
-  const pause = () => rec.pause();
-  const cancel = () => rec.stop();
+  const play = () => {
+    console.log('play')
+    rec.start();
+  }
+  const stop = () => {
+    console.log('stop')
+    rec.stop();
+  }
+  const resume = () => {
+    console.log('resume')
+    rec.resume();
+  }
+  const pause = () => {
+    console.log('pause')
+    rec.pause();
+  }
+  const cancel = () => {
+    console.log('cancel')
+    rec.stop();
+  }
 
   const addNewTask = async () => {
     const data = {

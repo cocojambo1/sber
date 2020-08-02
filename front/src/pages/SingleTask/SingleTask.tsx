@@ -15,12 +15,10 @@ interface IProps {
 const SingleTask: React.FC<IProps> = ({location, task, isError, isFetching}) => {
   const dispatch = useDispatch();
   const taskId = +location.pathname.slice(6);
-console.log(taskId)
+
   useEffect(() => {
     dispatch(getSingleTaskRequest(taskId))
   }, [])
-
-  console.log(task.description)
 
   if (isFetching)
     return <Loader/>
