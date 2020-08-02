@@ -11,7 +11,7 @@ const server = http.createServer(app)
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded({ extended: true }) );
 
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3000', 'http://vahella.me:3000'];
 
 app.use(cors({
 	origin: function(origin: any, callback: any){
