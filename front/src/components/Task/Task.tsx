@@ -1,5 +1,6 @@
 import './Task.sass'
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { cutStr } from "../../functions/cutStr";
 
 interface IProps {
@@ -9,11 +10,11 @@ interface IProps {
 
 const Task: React.FC<IProps> = ({text, id}) => {
   return (
-    <div className='task'>
+    <NavLink exact to={`/task/${id}`} className='task'>
       {
-        cutStr( 'asasdfgggggggggsdfgsdfgsdgsdfgsdfgsdvbfgesgsdgsdsdgsdfgsdfgsdfgsdgadgsdfgsdfg d', 70 )
+        cutStr( text, 70 )
       }
-    </div>
+    </NavLink>
   )
 }
 

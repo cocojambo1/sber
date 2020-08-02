@@ -1,6 +1,6 @@
 @import "../../Mixins"
 
-header
+.head
   width: 100vw
   height: 56px
   background-color: #fff
@@ -8,3 +8,8 @@ header
   @include position(fixed)
   @include align-items(center)
   @include justify-content(center)
+
+  &__container
+    @include display(grid)
+    @include grid-column-gap(30px)
+    @include grid-template-columns(1fr 1fr)

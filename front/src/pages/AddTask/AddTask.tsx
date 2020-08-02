@@ -1,25 +1,28 @@
 import './AddTask.sass'
+import axios from "axios";
 import Input from "./Input";
-import React, { useState } from "react";
-import RichEditorExample from "../../components/Editor/Editor";
-import TextareaAutosize from 'react-textarea-autosize';
-import Microphone from "./svg/Microphone";
+import Play from "./svg/Play";
+import Stop from "./svg/Stop";
 import Pause from "./svg/Pause";
 import Cancel from "./svg/Cancel";
-import Stop from "./svg/Stop";
-import axios from "axios";
-import Play from "./svg/Play";
+import React, { useState } from "react";
+import Microphone from "./svg/Microphone";
 import Btn from "../../components/ui/btn/Btn";
+import { push } from "connected-react-router";
+import TextareaAutosize from 'react-textarea-autosize';
+import {useDispatch} from "react-redux";
+import Editor from "../../components/Editor/Editor";
 
 const AddTask = () => {
+  const [obj, setObj] = useState<any[]>([])
   const [title, setTitle] = useState<string>('')
   const [audio, setAudio] = useState<boolean>(false)
-  const [description, setDescription] = useState<string>('')
-  const [obj, setObj] = useState<any[]>([])
   const [status, setStatus] = useState<string>('stop')
+  const [description, setDescription] = useState<string>('')
   const [records, setRecords] = useState<string[] | number[]>([])
+
+  const dispatch = useDispatch();
   const audioChunks: any = [];
-  // let status = ''
   let rec: any;
 
   window.navigator.mediaDevices.getUserMedia({audio: true}).then(stream => handlerFunction(stream))
@@ -91,7 +94,7 @@ ${response.data.text}`)
     rec.stop();
   };
 
-  const addNewTask = () => {
+  const addNewTask = async () => {
     const data = {
       title,
       records,
@@ -100,7 +103,17 @@ ${response.data.text}`)
       ownerId: 1,
     }
 
-    axios.post('http://vahella.me:8087/task', data).then(response => console.log(response))
+    const response = await axios.post('http://vahella.me:8087/task', data)
+
+    if (response.status === 200) {
+      setObj([]);
+      setTitle('');
+      setRecords([]);
+      setAudio(false);
+      setDescription('');
+
+      dispatch(push(`/task/${response.data.taskId}`))
+    }
   }
 
   return (
@@ -113,13 +126,18 @@ ${response.data.text}`)
           placeholder='Название проекта'
         />
 
-        <TextareaAutosize
-          minRows={10}
-          maxRows={35}
+        <Editor
           value={description}
-          placeholder='Описание задачи'
-          onChange={e => setDescription(e.target.value)}
+          set={setDescription}
         />
+
+        {/*<TextareaAutosize*/}
+        {/*  minRows={10}*/}
+        {/*  maxRows={35}*/}
+        {/*  value={description}*/}
+        {/*  placeholder='Описание задачи'*/}
+        {/*  onChange={e => setDescription(e.target.value)}*/}
+        {/*/>*/}
 
         <div className='audio'>
           <div className='audio__recorder'>

@@ -13,22 +13,30 @@ const Header = ({ pathname }: any) => {
   const goBack = () => dispatch( push('/') )
 
   return (
-    <header>
-      {
-        pathname !== '/addTask' ? (
-          <Btn
-            style={btnStyle}
-            onclick={addTask}
-            text='Добавить задачу'
-          />
-        ) : (
-          <Btn
-            text='Назад'
-            onclick={goBack}
-            style={btnStyle}
-          />
-        )
-      }
+    <header className='head'>
+      <div className='head__container'>
+        {
+          pathname !== '/' ? (
+            (
+              <Btn
+                text='Назад'
+                onclick={goBack}
+                style={btnStyle}
+              />
+            )
+          ) : null
+        }
+
+        {
+          pathname !== '/addTask' ? (
+            <Btn
+              style={btnStyle}
+              onclick={addTask}
+              text='Добавить задачу'
+            />
+          ) : null
+        }
+      </div>
     </header>
   );
 };
